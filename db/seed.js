@@ -7,4 +7,4 @@ Student.remove({}).then(function(){
   Student.collection.insert(seedData).then(ffunction(){
     process.exit();
   });
-}) ;
+});

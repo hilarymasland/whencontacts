@@ -1,7 +1,10 @@
 var express = require("express");
 var hbs     = require("express-handlebars");
-var db      = require("./db/connection");
+var mongoose = require("./db/connection");
+
 var app     = express();
+
+var Student = mongoose.model("Student");
 
 app.set("port", process.env.PORT || 3001)
 app.set("view engine", "hbs");
@@ -19,8 +22,10 @@ app.get("/", function(req, res){
 });
 
 app.get("/students", function(req, res){
-  res.render("students-index", {
-    students: db.students
+  Student.find({}).then(function(students){
+    res.render("students-index", {
+      students: students
+    });
   });
 });
 

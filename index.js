@@ -1,4 +1,5 @@
 var express = require("express");
+var parser = require("body-parser");
 var hbs     = require("express-handlebars");
 var mongoose = require("./db/connection");
 
@@ -16,6 +17,7 @@ app.engine(".hbs", hbs({
 }));
 
 app.use("/assets", express.static("public"));
+app.use(parser.urlencoded({extended: true})):
 
 app.get("/", function(req, res){
   res.render("app-welcome");

@@ -1,5 +1,8 @@
 
-
+{{#if student}}
 <h2>Name: {{student.name}}</h2>
 <h2>Phone: {{student.phone}}</h2>
 <h2>Email: {{student.email}}</h2>
+{{else}}
+<h2>That student could not be found!</h2>
+{{/if}}

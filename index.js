@@ -26,8 +26,8 @@ app.get("/students", function(req, res){
 app.get("/students/:name", function(req, res){
   var data = {
     name: req.params.name,
-    phone_number: req.params.phone_number,
-    email_address: req.params.email_address
+    phone: req.params.phone,
+    email: req.params.email
   }
   res.render("students-show", {
     student: data

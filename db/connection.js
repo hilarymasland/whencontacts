@@ -10,7 +10,7 @@ var StudentSchema = new mongoose.Schema(
 mongoose.model("Student", StudentSchema);
 mongoose.connect("mongodb://localhost/whencontacts");
 if(process.env.NODE_ENV == "production"){
-  mongoose.connect(process.env.MONGOLAB_URL);
+  mongoose.connect(process.env.MONGODB_URL);
 }else{
   mongoose.connect("mongodb://localhost/whencontacts");
 }

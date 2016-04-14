@@ -1,5 +1,6 @@
 var express = require("express");
 var hbs     = require("express-handlebars");
+var db      = require("./db/connection");
 var app     = express();
 
 
@@ -19,7 +20,7 @@ app.get("/", function(req, res){
 
 app.get("/students", function(req, res){
   res.render("students-index", {
-    numStudents: 20
+    students: db.students
   });
 });
 

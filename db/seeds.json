@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Hilary",
+    "phone_number": "555-867-5309",
+    "email_address": "hilmas@yolo.com"
+  },
+  {
+    "name": "Adrian",
+    "phone_number": "555-867-5309",
+    "email_address": "adrian@yolo.com"
+  },
+  {
+    "name": "LaFrish",
+    "phone_number": "555-867-5309",
+    "email_address": "LaFrish@yolo.com"
+  }
+]

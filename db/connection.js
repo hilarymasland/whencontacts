@@ -10,7 +10,4 @@ var StudentSchema = new mongoose.Schema(
 mongoose.model("Student", StudentSchema);
 mongoose.connect("mongodb://localhost/whencontact");
 
-var seedData = require("./seeds.json");
-module.exports = {
-  students: seedData
-};
+module.exports = mongoose;

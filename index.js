@@ -1,7 +1,11 @@
 var express = require("express");
+var parser = require("body-parser");
 var hbs     = require("express-handlebars");
-var db      = require("./db/connection");
+var mongoose = require("./db/connection");
+
 var app     = express();
+
+var Student = mongoose.model("Student");
 
 app.set("port", process.env.PORT || 3001)
 app.set("view engine", "hbs");
@@ -13,27 +17,25 @@ app.engine(".hbs", hbs({
 }));
 
 app.use("/assets", express.static("public"));
+app.use(parser.urlencoded({extended: true})):
 
 app.get("/", function(req, res){
   res.render("app-welcome");
 });
 
 app.get("/students", function(req, res){
-  res.render("students-index", {
-    students: db.students
+  Student.find({}).then(function(students){
+    res.render("students-index", {
+      students: students
+    });
   });
 });
 
 app.get("/students/:name", function(req, res){
-  var desiredName = req.params.name;
-  var studentOutput;
-  db.students.forEach(function(student){
-    if(desiredName === student.name){
-      studentOutput = student;
-    }
-  });
-  res.render("students-show", {
-    student: studentOutput
+  Student.findOne({name: req.params.name}).then(function(student){
+    res.render("students-show", {
+      student: student
+    });
   });
 });
 

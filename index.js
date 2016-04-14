@@ -3,6 +3,7 @@ var hbs     = require("express-handlebars");
 var db      = require("./db/connection");
 var app     = express();
 
+app.set("port", process.env.PORT || 3001)
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
   extname:        ".hbs",
@@ -36,6 +37,6 @@ app.get("/students/:name", function(req, res){
   });
 });
 
-app.listen(3001, function(){
+app.listen(app.get("port"), function(){
   console.log("It's ALIIIVE");
 });

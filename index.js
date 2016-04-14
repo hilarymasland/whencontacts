@@ -30,15 +30,10 @@ app.get("/students", function(req, res){
 });
 
 app.get("/students/:name", function(req, res){
-  var desiredName = req.params.name;
-  var studentOutput;
-  db.students.forEach(function(student){
-    if(desiredName === student.name){
-      studentOutput = student;
-    }
-  });
-  res.render("students-show", {
-    student: studentOutput
+  Student.findOne({name: req.params.name}).then(function(student){
+    res.render("students-show", {
+      student: student
+    });
   });
 });
 

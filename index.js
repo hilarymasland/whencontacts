@@ -17,7 +17,7 @@ app.engine(".hbs", hbs({
 }));
 
 app.use("/assets", express.static("public"));
-app.use(parser.urlencoded({extended: true})):
+app.use(parser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
   res.render("app-welcome");

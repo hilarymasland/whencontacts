@@ -7,7 +7,7 @@ var app     = express();
 
 var Student = mongoose.model("Student");
 
-app.set("port", process.env.PORT || 3001)
+app.set("port", process.env.PORT || 3001);
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
   extname:        ".hbs",
@@ -41,13 +41,13 @@ app.get("/students/:name", function(req, res){
 app.post("/students", function(req, res){
   Student.create(req.body.student).then(function(student){
     res.redirect("/students/" + student.name);
-  })
+  });
 });
 
 
 app.post("/students/:name/delete", function(req, res){
   Student.findOneAndRemove({name: req.params.name}).then(function(){
-    res.redirect("/students")
+    res.redirect("/students");
   });
 });
 

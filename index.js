@@ -24,13 +24,15 @@ app.get("/students", function(req, res){
 });
 
 app.get("/students/:name", function(req, res){
-  var data = {
-    name: req.params.name,
-    phone: req.params.phone,
-    email: req.params.email
-  }
+  var desiredName = req.params.name;
+  var studentOutput;
+  db.students.forEach(function(student){
+    if(desiredName === student.name){
+      studentOutput = student;
+    }
+  });
   res.render("students-show", {
-    student: data
+    student: studentOutput
   });
 });
 

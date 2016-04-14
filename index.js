@@ -38,7 +38,24 @@ app.get("/students/:name", function(req, res){
     });
   });
 });
+app.post("/students", function(req, res){
+  Student.create(req.body.student).then(function(student){
+    res.redirect("/students/" + student.name);
+  })
+});
 
+
+app.post("/students/:name/delete", function(req, res){
+  Student.findOneAndRemove({name: req.params.name}).then(function(){
+    res.redirect("/students")
+  });
+});
+
+app.post("/students/:name", function(req, res){
+  Student.findOneAndUpdate({name: req.params.name}, req.body.student,{new: true}).then(function(student){
+    res.redirect("/students/" + student.name);
+  });
+});
 app.listen(app.get("port"), function(){
   console.log("It's ALIIIVE");
 });

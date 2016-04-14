@@ -4,3 +4,10 @@
   <a href="/students/{{student.name}}">{{student.name}}</a>
 </h3>
 {{/each}}
+
+<form action="/students" method="post">
+  <input type="text" name="student[name]" placeholder="Name" />
+  <input type="text" name="student[phone]" placeholder="Phone" />
+  <input type="text" name="student[email]" placeholder="Email" />
+  <button type="submit">Add Contact</button>
+</form>

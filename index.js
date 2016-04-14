@@ -39,7 +39,9 @@ app.get("/students/:name", function(req, res){
   });
 });
 app.post("/students", function(req, res){
-  res.json(req.body);
+  Student.create(req.body.student).then(function(student){
+    res.redirect("/students/" + student.name);
+  })
 });
 
 app.listen(app.get("port"), function(){

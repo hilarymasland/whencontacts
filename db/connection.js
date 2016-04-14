@@ -8,6 +8,6 @@ var StudentSchema = new mongoose.Schema(
   }
 );
 mongoose.model("Student", StudentSchema);
-mongoose.connect("mongodb://localhost/whencontact");
+mongoose.connect("mongodb://localhost/whencontacts");
 
 module.exports = mongoose;

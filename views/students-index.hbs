@@ -1,13 +1,14 @@
-<h2>{{students.length}} Students</h2>
+<h2>Class size so far:  {{students.length}} coders</h2>
+<h3 class="italic">click on a name to see full contact info!</h3>
 {{#each students as |student index|}}
-<h3>
+<h3 class="nametag">
   <a href="/students/{{student.name}}">{{student.name}}</a>
 </h3>
 {{/each}}
 
-<form action="/students" method="post">
-  <input type="text" name="student[name]" placeholder="Name" />
+<form class="form" action="/students" method="post">
+  <input type="text" name="student[name]" placeholder="First and Last Name" />
   <input type="text" name="student[phone]" placeholder="Phone" />
   <input type="text" name="student[email]" placeholder="Email" />
-  <button type="submit">Add Contact</button>
+  <button class="submit" type="submit">Add Contact</button>
 </form>

@@ -1,17 +1,19 @@
 {{#unless student}}
 <h2>That student could not be found!</h2>
 {{else}}
+<div class="nametag">
 <h2>{{student.name}}</h2>
 <h2>{{student.phone}}</h2>
 <h2>{{student.email}}</h2>
+</div>
 <form method="post" action="/students/{{student.name}}/delete">
-  <button type="submit">Delete Contact</button>
+  <button class="submit" type="submit">Delete Contact</button>
 </form>
 
 <form action="/students/{{student.name}}" method="post">
-  <input type="text" name="student[name]" placeholder="Name" value="{{student.name}}" />
+  <input type="text" name="student[name]" placeholder="First and Last Name" value="{{student.name}}" />
   <input type="text" name="student[phone]" placeholder="Phone" value="{{student.phone}}" />
   <input type="text" name="student[email]" placeholder="Email" value="{{student.email}}" />
-<button type="sumbit">Edit Contact</button>
+<button class="submit" type="sumbit">Edit Contact</button>
 </form>
 {{/unless}}

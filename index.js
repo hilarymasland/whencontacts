@@ -44,6 +44,11 @@ app.post("/students", function(req, res){
   })
 });
 
+app.post("/students/:name", function(req, res){
+  Student.findOneAndUpdate({name: req.params.name}, req.body.student,{new: true}).then(function(student){
+    res.redirect("/students/" + student.name);
+  });
+});
 app.listen(app.get("port"), function(){
   console.log("It's ALIIIVE");
 });

@@ -1,3 +1,53 @@
-body {
-  text-align:center;
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+#main-body{
+  text-align: center;
+  background-image: url("../images/wallpaper.jpg");
+}
+
+a{
+  text-decoration: none;
+  color:inherit;
+}
+.nav{
+  color:rgba(30,13,10,1);
+  border: solid 3px;
+  border-color: rgba(30,13,10,1);
+  border-radius:5em;
+}
+
+.container{
+  border: solid 5px;
+  border-color: rgba(30,13,10,1);
+  border-radius:5em;
+  margin: 10%;
+  background-color: rgba(155,0,0,0.5);
+}
+.form{
+  margin:3%;
+}
+
+input{
+  text-align: center;
+  border: solid 3px;
+  color:rgba(30,13,10,1);
+  border-radius: 1em;
+  height:3em;
+  width:auto;
+  margin:2em;
+}
+.italic{
+  font-style: italic;
+}
+
+.submit{
+  border: solid 3px;
+  border-radius: 5em;
+  color:rgba(30,13,10,1);
+  background-color:rgb(125,134,10);
+}
+.nametag{
+  color:rgb(243,233,192)
 }
